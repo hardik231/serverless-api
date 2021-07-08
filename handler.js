@@ -3,7 +3,7 @@
 const AWS = require('aws-sdk'); 
 
 
-//AWS.config.setPromisesDependency(require('bluebird'));
+AWS.config.setPromisesDependency(require('bluebird'));
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 

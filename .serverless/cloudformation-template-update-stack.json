@@ -74,7 +74,7 @@
     "SubmitEmployeeLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/candidate-service-dev-submitEmployee"
+        "LogGroupName": "/aws/lambda/nodejs-dev-submitEmployee"
       }
     },
     "IamRoleLambdaExecution": {
@@ -102,7 +102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "candidate-service",
+                  "nodejs",
                   "dev",
                   "lambda"
                 ]
@@ -119,7 +119,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/candidate-service-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nodejs-dev*:*"
                     }
                   ]
                 },
@@ -130,7 +130,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/candidate-service-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nodejs-dev*:*:*"
                     }
                   ]
                 },
@@ -153,7 +153,7 @@
           "Fn::Join": [
             "-",
             [
-              "candidate-service",
+              "nodejs",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -171,17 +171,17 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/candidate-service/dev/1625724851552-2021-07-08T06:14:11.552Z/candidate-service.zip"
+          "S3Key": "serverless/nodejs/dev/1625725829933-2021-07-08T06:30:29.933Z/nodejs.zip"
         },
         "Handler": "handler.submit",
         "Runtime": "nodejs14.x",
-        "FunctionName": "candidate-service-dev-submitEmployee",
+        "FunctionName": "nodejs-dev-submitEmployee",
         "MemorySize": 128,
         "Timeout": 6,
         "Description": "Submit candidate information and starts interview process.",
         "Environment": {
           "Variables": {
-            "CANDIDATE_TABLE": "candidate-service-dev",
+            "CANDIDATE_TABLE": "nodejs-dev",
             "CANDIDATE_EMAIL_TABLE": "candidate-email-dev"
           }
         },
@@ -196,21 +196,21 @@
         "SubmitEmployeeLogGroup"
       ]
     },
-    "SubmitEmployeeLambdaVersion6p61yVJXVXnCNiuiS2q4arvhpEnWaD2ec71iRb1dzFg": {
+    "SubmitEmployeeLambdaVersionZkXA5PPVp6DB1iSWIrTqrsjkYP6WmqDI2o1KAcjUI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SubmitEmployeeLambdaFunction"
         },
-        "CodeSha256": "E3dQFVxLLrjpKfoyXl9R2664ZM/mf88vdY1+GzuQY9U=",
+        "CodeSha256": "x19Frn81OcU147/lqLuuU3DIyqA0onZEJPgJd3JjU6E=",
         "Description": "Submit candidate information and starts interview process."
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-candidate-service",
+        "Name": "dev-nodejs",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -277,7 +277,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1625724830240": {
+    "ApiGatewayDeployment1625725816579": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -333,16 +333,16 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-candidate-service-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-nodejs-dev-ServerlessDeploymentBucketName"
       }
     },
     "SubmitEmployeeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SubmitEmployeeLambdaVersion6p61yVJXVXnCNiuiS2q4arvhpEnWaD2ec71iRb1dzFg"
+        "Ref": "SubmitEmployeeLambdaVersionZkXA5PPVp6DB1iSWIrTqrsjkYP6WmqDI2o1KAcjUI"
       },
       "Export": {
-        "Name": "sls-candidate-service-dev-SubmitEmployeeLambdaFunctionQualifiedArn"
+        "Name": "sls-nodejs-dev-SubmitEmployeeLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -368,7 +368,7 @@
         ]
       },
       "Export": {
-        "Name": "sls-candidate-service-dev-ServiceEndpoint"
+        "Name": "sls-nodejs-dev-ServiceEndpoint"
       }
     }
   }
