@@ -1,7 +1,7 @@
 'use strict';
 
 const AWS = require('aws-sdk'); 
-
+const uuid = require('uuid')
 
 AWS.config.setPromisesDependency(require('bluebird'));
 
@@ -43,7 +43,7 @@ module.exports.submit = async (event) => {
 const submitCandidateP = candidate => {
   console.log('Submitting candidate');
   const candidateInfo = {
-    TableName: 'candidates',
+    TableName: process.env.CANDIDATE_TABLE,
     Item: candidate,
   };
   return dynamoDb.put(candidateInfo).promise()
@@ -53,6 +53,7 @@ const submitCandidateP = candidate => {
 const candidateInfo = (fullname, email, experience) => {
   const timestamp = new Date().getTime();
   return {    
+    id: uuid.v1(),
     fullname: fullname,
     email: email,
     experience: experience,

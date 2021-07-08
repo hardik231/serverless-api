@@ -221,7 +221,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nodejs/dev/1625725829933-2021-07-08T06:30:29.933Z/nodejs.zip"
+                "S3Key": "serverless/nodejs/dev/1625732031407-2021-07-08T08:13:51.407Z/nodejs.zip"
               },
               "Handler": "handler.submit",
               "Runtime": "nodejs14.x",
@@ -246,14 +246,14 @@
               "SubmitEmployeeLogGroup"
             ]
           },
-          "SubmitEmployeeLambdaVersionZkXA5PPVp6DB1iSWIrTqrsjkYP6WmqDI2o1KAcjUI": {
+          "SubmitEmployeeLambdaVersion2DoOhnYh7gzm4hKdTU3SGCqsE3qfsgYiewwUaSd60Q": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SubmitEmployeeLambdaFunction"
               },
-              "CodeSha256": "x19Frn81OcU147/lqLuuU3DIyqA0onZEJPgJd3JjU6E=",
+              "CodeSha256": "tuE/jCNX1xMhvnwqpEQbeJFsM3O4zG4mSqPOwSM6uTs=",
               "Description": "Submit candidate information and starts interview process."
             }
           },
@@ -327,7 +327,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1625725816579": {
+          "ApiGatewayDeployment1625732003969": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -389,7 +389,7 @@
           "SubmitEmployeeLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SubmitEmployeeLambdaVersionZkXA5PPVp6DB1iSWIrTqrsjkYP6WmqDI2o1KAcjUI"
+              "Ref": "SubmitEmployeeLambdaVersion2DoOhnYh7gzm4hKdTU3SGCqsE3qfsgYiewwUaSd60Q"
             },
             "Export": {
               "Name": "sls-nodejs-dev-SubmitEmployeeLambdaFunctionQualifiedArn"
@@ -528,7 +528,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "SubmitEmployeeLambdaVersionZkXA5PPVp6DB1iSWIrTqrsjkYP6WmqDI2o1KAcjUI"
+        "versionLogicalId": "SubmitEmployeeLambdaVersion2DoOhnYh7gzm4hKdTU3SGCqsE3qfsgYiewwUaSd60Q"
       }
     },
     "configValidationMode": "warn",
@@ -550,7 +550,7 @@
     "artifact": "F:\\web-dev\\serverless\\api\\candidate-service\\.serverless\\nodejs.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/nodejs/dev/1625725829933-2021-07-08T06:30:29.933Z",
+    "artifactDirectoryName": "serverless/nodejs/dev/1625732031407-2021-07-08T08:13:51.407Z",
     "artifact": "nodejs.zip"
   }
 }
